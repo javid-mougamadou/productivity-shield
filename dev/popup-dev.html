@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=320">
+  <title>productivity_shield — Dev</title>
+  <link rel="stylesheet" href="../popup/popup.css">
+</head>
+<body>
+<script src="chrome-mock.js"></script>
+
+<div class="popup">
+  <header class="header">
+    <div class="header-logo"><img src="../icons/icon32.png" alt="">productivity_shield</div>
+    <button class="btn btn-ghost btn-icon" id="settingsBtn" title="Réglages">⚙</button>
+  </header>
+  <div class="profile-bar">
+    <button class="profile-btn" data-profile="normal">Normal</button>
+    <button class="profile-btn" data-profile="focus">Focus</button>
+    <button class="profile-btn" data-profile="zen">Zen</button>
+  </div>
+  <div class="status-card">
+    <div class="status-row"><span class="status-label">Créneau</span><span class="status-value" id="slotStatus">—</span></div>
+    <div class="status-row"><span class="status-label">Pause</span><span class="status-value" id="pauseStatus">—</span></div>
+  </div>
+  <div class="site-banner" id="siteBanner" style="display:none"><span id="siteDomain"></span><span class="site-status" id="siteStatus"></span></div>
+  <div class="actions" id="quickActions" style="display:none">
+    <button class="btn btn-secondary btn-flex" id="whitelistBtn">Whitelist ce site</button>
+    <button class="btn btn-secondary btn-flex" id="blacklistBtn">Blacklist ce site</button>
+  </div>
+  <footer class="footer"><span class="footer-version">v1.0.0</span></footer>
+</div>
+<div class="toast" id="toast"></div>
+<script src="../popup/popup.js"></script>
+</body>
+</html>

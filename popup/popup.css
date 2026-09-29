@@ -1,0 +1,216 @@
+/* ============================================================
+   productivity_shield — popup
+   Palette : indigo / violet
+   ============================================================ */
+
+:root {
+  --background:        #ffffff;
+  --foreground:        #0f0f23;
+  --card:              #ffffff;
+
+  --primary:           #6366f1;
+  --primary-hover:     #4f46e5;
+  --primary-active:    #4338ca;
+  --primary-foreground:#ffffff;
+
+  --border:            #e5e7eb;
+  --border-strong:     #d1d5db;
+
+  --bg:                var(--background);
+  --bg-subtle:         #fafafa;
+  --bg-muted:          #f3f4f6;
+  --text:              var(--foreground);
+  --text-muted:        #6b7280;
+  --text-subtle:       #9ca3af;
+
+  --green:             #10b981;
+  --green-light:       #ecfdf5;
+  --red:               #ef4444;
+  --red-light:         #fef2f2;
+  --yellow:            #f59e0b;
+  --yellow-light:      #fffbeb;
+
+  --accent-light:      #eef2ff;
+
+  --radius-sm:         4px;
+  --radius:            8px;
+  --radius-lg:         12px;
+  --radius-xl:         14px;
+
+  --shadow-sm:         0 1px 2px rgba(0,0,0,.05);
+
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  width: 320px;
+  min-height: 160px;
+}
+
+.popup { display: flex; flex-direction: column; }
+
+/* ---- Header --------------------------------------------------------------- */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 14px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+}
+.header-logo img { width: 18px; height: 18px; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: none;
+  padding: 6px 8px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+.btn-ghost:hover { background: var(--bg-muted); color: var(--text); }
+.btn-icon { width: 30px; height: 30px; padding: 0; display: flex; align-items: center; justify-content: center; }
+
+/* ---- Profile bar ------------------------------------------------------------ */
+
+.profile-bar {
+  display: flex;
+  margin: 10px 12px 0;
+  background: var(--bg-muted);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 3px;
+  gap: 2px;
+}
+
+.profile-btn {
+  flex: 1;
+  padding: 6px 0;
+  font-size: 11.5px;
+  font-weight: 500;
+  font-family: var(--font);
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: calc(var(--radius) - 2px);
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.profile-btn:hover { color: var(--text); background: var(--bg-subtle); }
+.profile-btn.active {
+  background: var(--card);
+  color: var(--primary);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+
+/* ---- Status card ------------------------------------------------------------ */
+
+.status-card {
+  margin: 12px 12px 0;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 10px 14px;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.status-label { font-size: 11.5px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; }
+.status-value { font-size: 12.5px; font-weight: 600; color: var(--text); }
+
+/* ---- Site banner -------------------------------------------------------------- */
+
+.site-banner {
+  margin: 10px 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--accent-light);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.site-status { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
+
+/* ---- Actions -------------------------------------------------------------- */
+
+.actions {
+  display: flex;
+  gap: 6px;
+  padding: 10px 12px 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 12.5px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.btn-secondary {
+  background: var(--bg-muted);
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-secondary:hover { background: #e5e7eb; }
+.btn-flex { flex: 1; }
+
+/* ---- Footer --------------------------------------------------------------- */
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+.footer-version { font-size: 11px; color: var(--text-subtle); }
+
+/* ---- Toast ---------------------------------------------------------------- */
+
+.toast {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: #1f2937;
+  color: #fff;
+  font-size: 12px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity .2s, transform .2s;
+  pointer-events: none;
+  z-index: 100;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }

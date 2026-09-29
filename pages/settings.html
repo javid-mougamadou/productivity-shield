@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Réglages — productivity_shield</title>
+  <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+<div class="page">
+
+  <div class="page-header">
+    <div>
+      <div class="page-title">Réglages</div>
+      <div class="page-subtitle">Configurer productivity_shield</div>
+    </div>
+  </div>
+
+  <!-- Profil -->
+  <div class="card">
+    <div class="card-title">Profil</div>
+    <div class="profile-picker" id="profilePicker">
+      <button class="profile-option" data-profile="normal">
+        <div class="profile-icon">⚖️</div>
+        <div>
+          <div class="profile-label">Normal</div>
+          <div class="profile-desc">Créneaux + whitelist/blacklist + pause disponible</div>
+        </div>
+      </button>
+      <button class="profile-option" data-profile="focus">
+        <div class="profile-icon">🎯</div>
+        <div>
+          <div class="profile-label">Focus</div>
+          <div class="profile-desc">Blacklist appliquée en permanence, sans pause, sans créneau</div>
+        </div>
+      </button>
+      <button class="profile-option" data-profile="zen">
+        <div class="profile-icon">🧘</div>
+        <div>
+          <div class="profile-label">Zen</div>
+          <div class="profile-desc">Extension désactivée, navigation libre partout</div>
+        </div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Créneaux -->
+  <div class="card">
+    <div class="card-title">Créneaux horaires</div>
+    <p class="card-desc">Périodes pendant lesquelles la blacklist et la navbar de classification sont actives (profil Normal uniquement).</p>
+    <div id="slotsList"></div>
+    <button class="btn btn-secondary btn-sm" id="addSlotBtn" style="margin-top:8px;">+ Ajouter un créneau</button>
+  </div>
+
+  <!-- Whitelist -->
+  <div class="card">
+    <div class="card-title">Whitelist</div>
+    <p class="card-desc">Ces domaines ne sont jamais bloqués.</p>
+    <div class="input-row">
+      <input type="text" id="whitelistInput" placeholder="ex: github.com">
+      <button class="btn btn-primary btn-sm" id="whitelistAddBtn">Ajouter</button>
+    </div>
+    <div class="tag-list" id="whitelistTags"></div>
+  </div>
+
+  <!-- Blacklist -->
+  <div class="card">
+    <div class="card-title">Blacklist</div>
+    <p class="card-desc">Ces domaines sont bloqués pendant les créneaux actifs (ou en permanence en profil Focus).</p>
+    <div class="input-row">
+      <input type="text" id="blacklistInput" placeholder="ex: youtube.com">
+      <button class="btn btn-primary btn-sm" id="blacklistAddBtn">Ajouter</button>
+    </div>
+    <div class="tag-list" id="blacklistTags"></div>
+  </div>
+
+  <!-- Neutres confirmés -->
+  <div class="card">
+    <div class="card-title">Domaines ignorés</div>
+    <p class="card-desc">Domaines classés "neutre" via la navbar — plus jamais de re-proposition.</p>
+    <div class="tag-list" id="neutralTags"></div>
+  </div>
+
+  <!-- Save -->
+  <div style="display:flex;gap:10px;margin-top:4px;">
+    <button class="btn btn-primary" id="saveBtn">Enregistrer</button>
+    <span id="saveStatus" style="font-size:12px;color:var(--text-subtle);align-self:center;"></span>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>productivity_shield — Dev UI</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #f3f4f6; margin: 0; padding: 32px; }
+    h1 { font-size: 18px; font-weight: 700; margin-bottom: 24px; color: #111; }
+    .grid { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+    .frame-wrap { display: flex; flex-direction: column; gap: 8px; }
+    .frame-label { font-size: 12px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: .05em; }
+    iframe { border: 1px solid #e5e7eb; border-radius: 12px; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  </style>
+</head>
+<body>
+  <h1>productivity_shield — UI Dev</h1>
+  <div class="grid">
+    <div class="frame-wrap">
+      <span class="frame-label">Popup</span>
+      <iframe src="popup-dev.html" width="320" height="360" scrolling="no"></iframe>
+    </div>
+    <div class="frame-wrap">
+      <span class="frame-label">Settings</span>
+      <iframe src="settings-dev.html" width="720" height="700"></iframe>
+    </div>
+    <div class="frame-wrap">
+      <span class="frame-label">Page bloquée</span>
+      <iframe src="blocked-dev.html" width="500" height="400"></iframe>
+    </div>
+  </div>
+</body>
+</html>

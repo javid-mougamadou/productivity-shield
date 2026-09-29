@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>productivity_shield</title>
+  <meta name="description" content="Bloque la navigation distrayante pendant vos créneaux de productivité. No tracking. Open source." />
+  <link rel="icon" type="image/png" sizes="128x128" href="icons/icon128.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 100%);
+      color: #e0e7ff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 480px;
+    }
+
+    .hero img {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 4px 24px rgba(99,102,241,.5));
+    }
+
+    h1 {
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #a5b4fc;
+      line-height: 1.65;
+      margin-bottom: 36px;
+    }
+
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #6366f1;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.15s, transform 0.1s;
+    }
+    a.btn:hover { background: #4f46e5; transform: translateY(-1px); }
+    a.btn:active { transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <img src="icons/icon128.png" alt="productivity_shield icon" />
+    <h1>productivity_shield</h1>
+    <p>Bloque la navigation distrayante pendant vos créneaux de productivité.<br>No tracking. Open source.</p>
+    <a class="btn" href="https://github.com/javid-mougamadou/productivity-shield/releases/download/latest/productivity-shield.zip" download>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      Download for Chrome
+    </a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,334 @@
+/* ============================================================
+   Design system — inner pages (settings, onboarding)
+   Palette : indigo / violet
+   ============================================================ */
+
+:root {
+  --background:           #ffffff;
+  --foreground:           #0f0f23;
+  --card:                 #ffffff;
+
+  --primary:              #6366f1;
+  --primary-hover:        #4f46e5;
+  --primary-active:       #4338ca;
+  --primary-foreground:   #ffffff;
+
+  --muted:                #f5f3ff;
+  --muted-foreground:     #6b7280;
+
+  --accent:               #6366f1;
+  --accent-light:         #eef2ff;
+  --accent-border:        #c7d2fe;
+
+  --border:               #e5e7eb;
+  --border-strong:        #d1d5db;
+  --input:                #e5e7eb;
+  --ring:                 #6366f1;
+
+  --bg:                   var(--background);
+  --bg-card:              var(--card);
+  --bg-subtle:            #fafafa;
+  --bg-muted:             #f3f4f6;
+  --text:                 var(--foreground);
+  --text-muted:           #6b7280;
+  --text-subtle:          #9ca3af;
+
+  --green:                #10b981;
+  --green-light:          #ecfdf5;
+  --red:                  #ef4444;
+  --red-light:            #fef2f2;
+  --yellow:               #f59e0b;
+  --yellow-light:         #fffbeb;
+
+  --radius-sm:            4px;
+  --radius:               8px;
+  --radius-lg:            12px;
+  --radius-xl:            16px;
+
+  --shadow-sm:            0 1px 2px rgba(0,0,0,.05);
+  --shadow:               0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
+
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { background: #f9fafb; }
+
+body {
+  font-family: var(--font);
+  font-size: 14px;
+  color: var(--text);
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+/* ---- Layout --------------------------------------------------------------- */
+
+.page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 24px 64px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.page-title   { font-size: 18px; font-weight: 700; color: var(--text); }
+.page-subtitle { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+/* ---- Card ----------------------------------------------------------------- */
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 16px;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+/* ---- Form fields ---------------------------------------------------------- */
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 16px;
+}
+.field:last-child  { border-bottom: none; padding-bottom: 0; }
+.field:first-child { padding-top: 0; }
+
+.field-label strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+.field-label span {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+select, input[type="text"], input[type="number"], input[type="time"] {
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--background);
+  border: 1px solid var(--input);
+  border-radius: var(--radius);
+  padding: 7px 10px;
+  outline: none;
+  min-width: 100px;
+}
+
+select:focus, input:focus {
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+}
+
+/* ---- Buttons -------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  transition: background .12s;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+  box-shadow: 0 1px 3px rgba(99,102,241,.3);
+}
+.btn-primary:hover  { background: var(--primary-hover); border-color: var(--primary-hover); }
+.btn-primary:active { background: var(--primary-active); }
+
+.btn-secondary {
+  background: var(--bg-muted);
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-secondary:hover  { background: #e5e7eb; }
+.btn-secondary:active { background: #d1d5db; }
+
+.btn-danger {
+  background: var(--red-light);
+  color: var(--red);
+  border-color: #fca5a5;
+}
+.btn-danger:hover { background: #fee2e2; }
+
+.btn-sm { font-size: 12px; padding: 5px 10px; }
+
+/* ---- Tags (domain lists) --------------------------------------------------- */
+
+.tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-strong);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: var(--text);
+}
+
+.tag-whitelist { background: var(--green-light); border-color: #a7f3d0; color: #065f46; }
+.tag-blacklist { background: var(--red-light); border-color: #fca5a5; color: #991b1b; }
+.tag-neutral   { background: var(--bg-muted); border-color: var(--border-strong); color: var(--text); }
+
+.tag-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  opacity: .6;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 2px;
+  display: flex;
+  align-items: center;
+}
+.tag-remove:hover { opacity: 1; }
+
+/* ---- Input row ------------------------------------------------------------ */
+
+.input-row { display: flex; gap: 8px; margin-top: 12px; }
+.input-row input { flex: 1; }
+
+/* ---- Schedule (time slots) ------------------------------------------------- */
+
+.slot-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.slot-row input[type="time"] { min-width: 90px; }
+
+.slot-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-subtle);
+  font-size: 16px;
+  padding: 4px 6px;
+}
+.slot-remove:hover { color: var(--red); }
+
+/* ---- Profile picker --------------------------------------------------------- */
+
+.profile-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font);
+  transition: border-color .15s, background .15s;
+}
+
+.profile-option:hover {
+  border-color: var(--border-strong);
+  background: var(--bg-subtle);
+}
+
+.profile-option.active {
+  border-color: var(--primary);
+  background: var(--accent-light);
+}
+
+.profile-icon { font-size: 20px; flex-shrink: 0; }
+
+.profile-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+}
+
+.profile-option.active .profile-label { color: var(--primary); }
+
+.profile-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+  display: block;
+}
+
+/* ---- Empty state ------------------------------------------------------------ */
+
+.empty-state {
+  text-align: center;
+  padding: 24px 20px;
+  color: var(--text-subtle);
+  font-size: 13px;
+}
+
+/* ---- Toast ----------------------------------------------------------------- */
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: #1f2937;
+  color: #fff;
+  font-size: 13px;
+  padding: 9px 18px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity .2s, transform .2s;
+  pointer-events: none;
+  z-index: 100;
+  white-space: nowrap;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }

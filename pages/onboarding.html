@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bienvenue — productivity_shield</title>
+  <link rel="stylesheet" href="pages.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .onboarding { max-width: 560px; width: 100%; padding: 24px; }
+    .hero { text-align: center; margin-bottom: 36px; }
+    .hero-icon { font-size: 52px; margin-bottom: 16px; }
+    .hero h1 { font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+    .hero p { font-size: 15px; color: var(--text-muted); }
+    .feature-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .feature { display: flex; align-items: flex-start; gap: 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 14px 16px; }
+    .feature-icon { font-size: 22px; flex-shrink: 0; }
+    .feature-text strong { display: block; font-size: 14px; font-weight: 600; }
+    .feature-text span { font-size: 13px; color: var(--text-muted); }
+    .footer-actions { display: flex; gap: 12px; justify-content: center; }
+    .defaults { background: var(--bg-muted); border-radius: var(--radius-lg); padding: 16px 20px; margin-bottom: 28px; }
+    .defaults-title { font-size: 12px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
+    .defaults-row { display: flex; align-items: center; justify-content: space-between; padding: 5px 0; font-size: 13px; }
+  </style>
+</head>
+<body>
+<div class="onboarding">
+
+  <div class="hero">
+    <div class="hero-icon">🛡️</div>
+    <h1>Bienvenue sur productivity_shield</h1>
+    <p>Gardez le cap pendant vos créneaux de productivité, sans effort de volonté.</p>
+  </div>
+
+  <div class="feature-list">
+    <div class="feature">
+      <div class="feature-icon">⏰</div>
+      <div class="feature-text">
+        <strong>Créneaux horaires</strong>
+        <span>Whitelist/blacklist actives uniquement pendant vos périodes de concentration configurées.</span>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🚦</div>
+      <div class="feature-text">
+        <strong>Classification à la volée</strong>
+        <span>Sur un site non classé, une barre s'affiche pour le whitelister, blacklister, ou l'ignorer définitivement.</span>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">⏸</div>
+      <div class="feature-text">
+        <strong>Pause de 10 minutes</strong>
+        <span>Une pause par heure glissante pour naviguer librement sur un site bloqué, en cas de besoin réel.</span>
+      </div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🎯</div>
+      <div class="feature-text">
+        <strong>Trois profils</strong>
+        <span>Normal (par défaut), Zen (désactivé) et Focus (blacklist stricte 24/7, sans pause).</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="defaults">
+    <div class="defaults-title">Créneaux par défaut</div>
+    <div class="defaults-row"><span>Matin</span><span>9h00 – 12h00</span></div>
+    <div class="defaults-row"><span>Après-midi</span><span>14h00 – 18h00</span></div>
+  </div>
+
+  <div class="footer-actions">
+    <button class="btn btn-primary" id="getStartedBtn" style="min-width:160px;">C'est parti</button>
+    <button class="btn btn-secondary" id="settingsBtn">Ouvrir les réglages</button>
+  </div>
+
+</div>
+<script src="onboarding.js"></script>
+</body>
+</html>

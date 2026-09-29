@@ -1,0 +1,10 @@
+services:
+  dev-ui:
+    build:
+      context: ..
+      dockerfile: dev/Dockerfile
+    ports:
+      - "3457:3457"
+    volumes:
+      - ..:/app
+    restart: unless-stopped

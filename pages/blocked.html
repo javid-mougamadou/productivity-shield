@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bloqué — productivity_shield</title>
+  <link rel="stylesheet" href="blocked.css">
+</head>
+<body>
+  <div class="card">
+
+    <div class="icon">🛡️</div>
+
+    <h1 id="title">Navigation bloquée</h1>
+    <p class="domain" id="domain"></p>
+    <p class="reason" id="reason"></p>
+
+    <div id="pause-section" style="display:none">
+      <button class="pause-btn" id="pause-btn">Activer une pause (10 min)</button>
+    </div>
+
+    <div id="pause-unavailable-section" style="display:none">
+      <p class="meta" id="pause-unavailable-text"></p>
+    </div>
+
+    <p class="meta">productivity_shield vous aide à rester concentré pendant vos créneaux.</p>
+
+  </div>
+  <script src="blocked.js"></script>
+</body>
+</html>

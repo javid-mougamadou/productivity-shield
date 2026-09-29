@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "productivity_shield",
+  "version": "1.0.0",
+  "description": "Bloque la navigation distrayante pendant vos créneaux de productivité, avec whitelist/blacklist, pause et profils.",
+  "minimum_chrome_version": "92",
+  "homepage_url": "https://github.com/javid-mougamadou/productivity-shield",
+
+  "action": {
+    "default_title": "productivity_shield",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "background": {
+    "service_worker": "background/index.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation"
+  ],
+
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["pages/blocked.html", "pages/blocked.css", "pages/blocked.js", "icons/*"],
+      "matches": ["*://*/*"]
+    }
+  ],
+
+  "options_page": "pages/settings.html",
+
+  "short_name": "P. Shield",
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
