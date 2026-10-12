@@ -36,6 +36,7 @@ async function init() {
   [status, activeTab] = await Promise.all([msg('GET_STATUS'), getActiveTab()]);
   renderProfile();
   renderStatus();
+  renderPauseButton();
   await renderSiteBanner();
 }
 
@@ -75,6 +76,37 @@ function renderStatus() {
     $('pauseStatus').textContent = remaining > 0 ? `dans ${formatRemaining(remaining)}` : 'indisponible';
   }
 }
+
+function renderPauseButton() {
+  const actions = $('pauseActions');
+  const btn = $('pauseBtn');
+
+  if (status.profile !== 'normal') {
+    actions.style.display = 'none';
+    return;
+  }
+
+  actions.style.display = 'flex';
+  btn.disabled = status.pauseActive || !status.pauseAvailable;
+  btn.textContent = status.pauseActive
+    ? 'Pause en cours'
+    : status.pauseAvailable
+      ? 'Activer une pause (10 min)'
+      : 'Pause indisponible';
+}
+
+$('pauseBtn').addEventListener('click', async () => {
+  const btn = $('pauseBtn');
+  btn.disabled = true;
+  btn.textContent = 'Activation…';
+  const res = await msg('START_PAUSE');
+  if (res?.ok) {
+    toast('Pause activée (10 min)');
+  } else {
+    toast('Pause indisponible');
+  }
+  await refresh();
+});
 
 async function renderSiteBanner() {
   if (!activeTab?.url || !/^https?:/.test(activeTab.url)) return;
@@ -127,6 +159,7 @@ async function refresh() {
   [status, activeTab] = await Promise.all([msg('GET_STATUS'), getActiveTab()]);
   renderProfile();
   renderStatus();
+  renderPauseButton();
   $('quickActions').style.display = 'none';
   $('siteBanner').style.display = 'none';
   await renderSiteBanner();

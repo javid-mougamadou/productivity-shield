@@ -1,0 +1,6 @@
+{
+  "name": "productivity_shield",
+  "private": true,
+  "type": "module",
+  "description": "Browser extension — no build step; package.json only enables running .claude/scripts/*.mjs verification scripts with Node."
+}

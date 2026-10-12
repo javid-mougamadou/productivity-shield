@@ -35,7 +35,13 @@ export function getActiveSlot(date = new Date()) {
   }) || null;
 }
 
+export function isWeekend(date = new Date()) {
+  const day = date.getDay();
+  return day === 0 || day === 6;
+}
+
 export function isWithinActiveSlot(date = new Date()) {
+  if (isWeekend(date)) return false;
   return getActiveSlot(date) !== null;
 }
 

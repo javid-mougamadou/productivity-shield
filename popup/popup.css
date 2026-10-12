@@ -183,6 +183,20 @@ body {
   border-color: var(--border);
 }
 .btn-secondary:hover { background: #e5e7eb; }
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-primary:active { background: var(--primary-active); }
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+  pointer-events: none;
+}
+
 .btn-flex { flex: 1; }
 
 /* ---- Footer --------------------------------------------------------------- */

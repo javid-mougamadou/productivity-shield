@@ -5,6 +5,7 @@
 - **Créneaux configurables** — par défaut 9h-12h et 14h-18h, éditables dans les réglages
 - **Plusieurs créneaux** — ajout/suppression libre
 - **Portée** — la whitelist/blacklist et la navbar de classification ne s'appliquent qu'en profil Normal pendant un créneau actif (hors créneau : navigation libre)
+- **Week-end désactivé** — en profil Normal, aucun créneau n'est jamais considéré actif le samedi et le dimanche : navigation libre, sans action requise (le profil sélectionné reste "Normal", le blocage reprend automatiquement le jour ouvré suivant)
 
 ## Whitelist / Blacklist / Neutre
 
@@ -30,7 +31,7 @@
 
 ## Interface
 
-- **Popup** — profil actif, statut du créneau, statut de la pause, raccourcis whitelist/blacklist pour le site courant
+- **Popup** — profil actif, statut du créneau, statut de la pause, bouton pour activer directement une pause quand elle est disponible (profil Normal uniquement), raccourcis whitelist/blacklist pour le site courant
 - **Réglages** — édition des créneaux, gestion des 3 listes de domaines, sélection du profil
 - **Onboarding** — page de présentation au premier lancement
 - **Page de blocage** — explique la raison du blocage, propose une pause si disponible
