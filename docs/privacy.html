@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>productivity_shield — Politique de confidentialité</title>
+  <meta name="description" content="productivity_shield ne collecte aucune donnée. Tout est stocké localement via chrome.storage." />
+  <link rel="icon" type="image/png" sizes="128x128" href="icons/icon128.png" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 100%);
+      color: #e0e7ff;
+      min-height: 100vh;
+      padding: 48px 24px 80px;
+    }
+
+    .wrap {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    header img {
+      width: 48px;
+      height: 48px;
+      filter: drop-shadow(0 4px 24px rgba(99,102,241,.5));
+    }
+
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .updated {
+      color: #818cf8;
+      font-size: 0.85rem;
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 36px 0 12px;
+      color: #fff;
+    }
+
+    p, li {
+      font-size: 0.95rem;
+      color: #c7d2fe;
+      line-height: 1.7;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+
+    li { margin-bottom: 8px; }
+
+    code {
+      background: rgba(99,102,241,.15);
+      color: #c7d2fe;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+
+    a {
+      color: #a5b4fc;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 48px;
+      color: #818cf8;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back:hover { color: #a5b4fc; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="icons/icon128.png" alt="productivity_shield icon" />
+      <h1>Politique de confidentialité</h1>
+    </header>
+    <p class="updated">Dernière mise à jour : 23 octobre 2026</p>
+
+    <p>
+      <strong>productivity_shield</strong> est une extension Chrome open
+      source qui bloque la navigation distrayante pendant des créneaux de
+      productivité configurables. Cette page explique quelles données
+      l'extension manipule et pourquoi.
+    </p>
+
+    <h2>Résumé</h2>
+    <ul>
+      <li>Aucune donnée n'est collectée, transmise ou vendue.</li>
+      <li>Aucun service d'analytics, de télémétrie ou de tracking tiers.</li>
+      <li>Aucune requête réseau sortante initiée par l'extension elle-même.</li>
+      <li>Toutes les données restent sur l'appareil de l'utilisateur.</li>
+    </ul>
+
+    <h2>Données stockées localement</h2>
+    <p>L'extension utilise exclusivement les API de stockage locales de Chrome :</p>
+    <ul>
+      <li>
+        <code>chrome.storage.sync</code> — créneaux horaires configurés,
+        listes de domaines (whitelist / blacklist / neutre) et profil actif
+        (Normal / Zen / Focus). Synchronisé par Chrome entre les appareils de
+        l'utilisateur connecté à son propre compte Google, jamais transmis à
+        un serveur tiers.
+      </li>
+      <li>
+        <code>chrome.storage.local</code> — état de la pause en cours
+        (minuteur de 10 minutes).
+      </li>
+    </ul>
+    <p>
+      Ces données restent sous le contrôle de Chrome et de l'utilisateur. Les
+      désinstaller supprime l'ensemble des données associées.
+    </p>
+
+    <h2>Permissions utilisées et pourquoi</h2>
+    <ul>
+      <li>
+        <code>storage</code> — nécessaire pour enregistrer les créneaux, les
+        listes de domaines, le profil et l'état de pause décrits ci-dessus.
+      </li>
+      <li>
+        <code>tabs</code> — nécessaire pour identifier l'onglet actif (afficher
+        son domaine dans le popup, proposer les raccourcis whitelist/blacklist
+        du site courant).
+      </li>
+      <li>
+        <code>webNavigation</code> — nécessaire pour détecter une navigation
+        vers un nouveau domaine et décider, avant l'affichage de la page, si
+        elle doit être bloquée selon le créneau et le profil actifs.
+      </li>
+      <li>
+        <code>host_permissions</code> (<code>http://*/*</code>,
+        <code>https://*/*</code>) — nécessaire car l'extension doit pouvoir
+        évaluer et, le cas échéant, bloquer la navigation sur <em>n'importe
+        quel site</em> que l'utilisateur ajoute lui-même à sa blacklist — la
+        liste des domaines concernés n'étant pas connue à l'avance, l'accès ne
+        peut pas être restreint à un sous-ensemble de sites.
+      </li>
+    </ul>
+    <p>
+      Dans tous les cas, ces permissions ne servent qu'à faire fonctionner
+      l'extension localement dans le navigateur de l'utilisateur — aucune
+      donnée de navigation n'est lue, enregistrée au-delà du strict nécessaire
+      ci-dessus, ni envoyée où que ce soit.
+    </p>
+
+    <h2>Code source</h2>
+    <p>
+      L'extension est open source (licence MIT). Le code complet est
+      consultable sur
+      <a href="https://github.com/javid-mougamadou/productivity-shield">GitHub</a>.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Pour toute question, ouvrir une
+      <a href="https://github.com/javid-mougamadou/productivity-shield/issues">issue GitHub</a>.
+    </p>
+
+    <a class="back" href="./">&larr; Retour</a>
+  </div>
+</body>
+</html>
